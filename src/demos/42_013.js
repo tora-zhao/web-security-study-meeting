@@ -12,7 +12,9 @@ class Demo42_013 extends React.Component {
     }
 
     checkInt(addr) {
-        var regex = new RegExp('^[^\c]{1,30}$');
+        // JavaScript equivalents to POSIX expression
+        // https://www.regular-expressions.info/posixbrackets.html
+        var regex = new RegExp('^[^\x00-\x1F\x7F]{1,30}$');
         return regex.test(addr);
     }
 
