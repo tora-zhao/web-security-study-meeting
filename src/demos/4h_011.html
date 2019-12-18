@@ -1,0 +1,25 @@
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.2/URI.min.js"></script>
+</head>
+<body>
+    <!-- test link -->
+    <!-- file:///Users/tora/Documents/mygithub/web-security-study-meeting/src/demos/4h_005.html?color=2 -->
+    <!-- file:///Users/tora/Documents/mygithub/web-security-study-meeting/src/demos/4h_005.html?color=%22]%3Cimg+src=/+onerror=alert(1)%3E -->
+    <script>
+        window.addEventListener("message", receiveMessage, false);
+        function receiveMessage(event) {
+            var d2 = document.getElementById("d2");
+            d2.innerHTML = "受信確認： " + event.data;
+        }
+        window.parent.postMessage("secret data", "*");
+    </script>
+    <div>
+        <div>
+            子フレーム<br/>
+            <div id="d2"></div>
+        </div>
+    </div>          
+</body> 

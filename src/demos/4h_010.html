@@ -1,0 +1,25 @@
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.2/URI.min.js"></script>
+</head>
+<body>
+    <!-- test link -->
+    <!-- file:///Users/tora/Documents/mygithub/web-security-study-meeting/src/demos/4h_005.html?color=2 -->
+    <!-- file:///Users/tora/Documents/mygithub/web-security-study-meeting/src/demos/4h_005.html?color=%22]%3Cimg+src=/+onerror=alert(1)%3E -->
+    <script>
+        window.addEventListener("message", receiveMessage, false);
+        function receiveMessage(event) {
+            var d1 = document.getElementById("d1");
+            d1.textContent = "メッセージを受け取りました： " + event.data;
+            event.source.postMessage("メッセージを受け取りました", "*");
+        }
+    </script>
+    <div>
+        <div>
+            親フレーム<br/>
+            <iframe src="file:///Users/tora/Documents/mygithub/web-security-study-meeting/src/demos/4h_011.html" width="200" height="100"></iframe><br/>
+            <div id="d1"></div>
+    </div>          
+</body> 

@@ -37,7 +37,9 @@ module.exports = {
         historyApiFallback: true,
     },
     // 装载虚拟目录插件
-    plugins: [htmlWebpackPlugin],
+    plugins: [
+        htmlWebpackPlugin
+    ],
     // 配置loader
     module: {
         // 根据文件后缀匹配规则
